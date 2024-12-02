@@ -1,0 +1,420 @@
+%%%%%%%%%%%%%%%%%
+% This is an sample CV template created using altacv.cls
+% (v1.7.2, 28 August 2024) written by LianTze Lim (liantze@gmail.com). Compiles with pdfLaTeX, XeLaTeX and LuaLaTeX.
+%
+%% It may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2003/12/01 or later.
+%%%%%%%%%%%%%%%%
+
+%% Use the "normalphoto" option if you want a normal photo instead of cropped to a circle
+% \documentclass[10pt,a4paper,normalphoto]{altacv}
+
+\documentclass[10pt,a4paper,ragged2e,withhyper]{altacv}
+%% AltaCV uses the fontawesome5 and simpleicons packages.
+%% See http://texdoc.net/pkg/fontawesome5 and http://texdoc.net/pkg/simpleicons for full list of symbols.
+
+% Change the page layout if you need to
+\geometry{left=1.25cm,right=1.25cm,top=1.5cm,bottom=1.5cm,columnsep=1.2cm}
+
+% The paracol package lets you typeset columns of text in parallel
+\usepackage{paracol}
+\usepackage{changepage}   % For adjustwidth environment
+\usepackage{calc}         % For width calculations
+% Add at the beginning of the document, after other packages
+\usepackage{microtype}  % Better typography
+\usepackage[explicit]{titlesec}  % Better section control
+% Add this near the beginning for better PDF output
+\usepackage[pdftex]{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=OceanBlue,
+    urlcolor=OceanBlue,
+    pdfborderstyle={/S/U/W 1}  % Underline style for links
+}
+
+% Add protection for photo loading
+\IfFileExists{CK2020_Square}{%
+    \photoR{2.8cm}{CK2020_Square}
+}{%
+    % Skip photo if file doesn't exist
+}
+% Improve list spacing
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=*,nosep,noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt}
+
+% Change the font if you want to, depending on whether
+% you're using pdflatex or xelatex/lualatex
+% WHEN COMPILING WITH XELATEX PLEASE USE
+% xelatex -shell-escape -output-driver="xdvipdfmx -z 0" sample.tex
+\iftutex 
+  % If using xelatex or lualatex:
+  \setmainfont{Roboto Slab}
+  \setsansfont{Lato}
+  \renewcommand{\familydefault}{\sfdefault}
+\else
+  % If using pdflatex:
+  \usepackage[rm]{roboto}
+  \usepackage[defaultsans]{lato}
+  % \usepackage{sourcesanspro}
+  \renewcommand{\familydefault}{\sfdefault}
+\fi
+
+% Refined color definitions
+\definecolor{NavyBlue}{HTML}{0A192F}    % Darkest blue - for main headings
+\definecolor{RoyalBlue}{HTML}{112240}   % Royal blue - for subheadings
+\definecolor{CorporateBlue}{HTML}{1E3D59} % Corporate blue - for section titles
+\definecolor{OceanBlue}{HTML}{2E5984}   % Ocean blue - for highlights
+\definecolor{SkyBlue}{HTML}{4682B4}     % Sky blue - for links/accents
+\definecolor{SlateGrey}{HTML}{475569}   % Slate grey - for body text
+\definecolor{LightSteel}{HTML}{64748B}  % Light steel blue - for secondary text
+\definecolor{tagbg}{RGB}{46, 84, 132}   % Tag background
+
+
+% Additional colors for emphasis and contrast
+\definecolor{emphasis}{HTML}{1E40AF}     % Brighter blue for emphasis text
+\definecolor{accent}{HTML}{3B82F6}       % Vibrant blue for accents
+\definecolor{heading}{HTML}{0A192F}      % Same as NavyBlue for consistency
+\definecolor{body}{HTML}{475569}         % Same as SlateGrey for consistency
+
+% Color assignments
+\colorlet{name}{NavyBlue}
+\colorlet{tagline}{CorporateBlue}
+\colorlet{heading}{NavyBlue}
+\colorlet{subheading}{RoyalBlue}
+\colorlet{accent}{OceanBlue}
+\colorlet{emphasis}{emphasis}            % Using the brighter blue for emphasized text
+\colorlet{body}{SlateGrey}
+
+% Change some fonts, if necessary
+\renewcommand{\namefont}{\Huge\rmfamily\bfseries}
+\renewcommand{\personalinfofont}{\footnotesize}
+\renewcommand{\cvsectionfont}{\LARGE\rmfamily\bfseries}
+\renewcommand{\cvsubsectionfont}{\large\bfseries}
+
+
+% Change the bullets for itemize and rating marker
+% for \cvskill if you want to
+\renewcommand{\cvItemMarker}{{\small\textbullet}}
+\renewcommand{\cvRatingMarker}{\faCircle}
+% ...and the markers for the date/location for \cvevent
+% \renewcommand{\cvDateMarker}{\faCalendar*[regular]}
+% \renewcommand{\cvLocationMarker}{\faMapMarker*}
+
+
+\begin{document}
+\name{Cenk Kiran}
+\tagline{Data Analytics \& Insights Professional}
+%% You can add multiple photos on the left or right
+\photoR{2.8cm}{CK2020_Square}
+
+
+\personalinfo{%
+  % Not all of these are required!
+  \email{cenk.kiran@gmail.com}
+  \phone{+44 77705 38647}
+  %\mailaddress{SE21, London}
+  \location{London, UK}
+  %\homepage{www.upturngrowth.co.uk}
+  % \twitter{@twitterhandle}
+  % \xtwitter{@cenkkiran}
+  \linkedin{cenkkiran}
+  \github{cenkkiran}
+  % \printinfo{\faCloud}{cenk.bsky.social}[https://bsky.app/profile/cenk.bsky.social] % Using cloud icon
+  %% You can add your own arbitrary detail with
+  %% \printinfo{symbol}{detail}[optional hyperlink prefix]
+  % \printinfo{\faPaw}{Hey ho!}[https://example.com/]
+
+  %% Or you can declare your own field with
+  %% \NewInfoFiled{fieldname}{symbol}[optional hyperlink prefix] and use it:
+  % \NewInfoField{gitlab}{\faGitlab}[https://gitlab.com/]
+  % \gitlab{your_id}
+  %%
+  %% For services and platforms like Mastodon where there isn't a
+  %% straightforward relation between the user ID/nickname and the hyperlink,
+  %% you can use \printinfo directly e.g.
+  % \printinfo{\faMastodon}{@username@instace}[https://instance.url/@username]
+  %% But if you absolutely want to create new dedicated info fields for
+  %% such platforms, then use \NewInfoField* with a star:
+  % \NewInfoField*{mastodon}{\faMastodon}
+  %% then you can use \mastodon, with TWO arguments where the 2nd argument is
+  %% the full hyperlink.
+  % \mastodon{@username@instance}{https://instance.url/@username}
+}
+
+\makecvheader
+%% Depending on your tastes, you may want to make fonts of itemize environments slightly smaller
+\AtBeginEnvironment{itemize}{\small}
+% \vspace{1em}  % Add some space after header
+
+% Profile section
+\begin{adjustwidth}{0pt}{0pt}
+\cvsection{Profile}
+\begin{justify}
+Data Analytics and Insights Professional with 8+ years of experience specializing in data-driven strategy and analysis. Skilled in building data models, optimizing ELT pipelines, and developing business intelligence dashboards. Adept at conducting in-depth analyses to solve complex business challenges and drive strategic decision-making. Experienced in leveraging growth marketing and analytics expertise to support high-growth start-ups and scale-ups in e-Commerce and SaaS. Combines technical proficiency, domain knowledge, and a passion for innovation to unlock data’s potential for measurable outcomes.
+\end{justify}
+\end{adjustwidth}
+
+
+\vspace{1em}  % Add some space after profile
+
+%% Set the left/right column width ratio to 6:4.
+\columnratio{0.6}
+
+% Start a 2-column paracol. Both the left and right columns will automatically
+% break across pages if things get too long.
+\begin{paracol}{2}
+
+\cvsection{Experience}
+
+\cvevent{Senior Marketing Data Analyst}{Beauty Pie \industrytag{e-Commerce}}{May 2024 -- Nov 2024}{London, UK (Hybrid)}
+\begin{itemize}
+\item Partnered across Growth, Retention, and Product teams to deliver dedicated analytics support, extract meaningful insights, and drive data-informed decision making
+\item Spearheaded the development of comprehensive marketing analytics dashboards and report-level semantic models, enabling real-time performance tracking and self-serve analytics capabilities for stakeholders across multichannel campaigns
+\item Engineered and executed business-critical A/B tests and experiments, providing actionable insights and strategic guidance that directly influenced core business decisions
+\item Led deep-dive analyses into retention challenges, extracting and implementing actionable data-driven strategies that directly influenced stakeholder decision-making
+\item Orchestrated churn prevention initiatives through comprehensive exploratory data analysis, working collaboratively with the data science team to develop predictive models and intervention strategies
+\end{itemize}
+
+\divider
+\smallskip
+\cvevent{Senior BI Analyst \& Analytics Engineer}{Comet ML \industrytag{SaaS}}{Apr 2022 -- Apr 2024}{NY, USA (Remote)}
+\begin{itemize}
+\item Spearheaded the development of enterprise-wide ELT data pipeline using Fivetran, dbt, Segment, and Redshift, transforming raw data into actionable insights
+\item Engineered 170+ data models and implemented 110+ tests, ensuring data integrity across BI events, marketing technology, and stakeholder-ready data marts
+\item Achieved 250\% increase in BI dashboard adoption and 110\% improvement in stakeholder self-service capabilities through intuitive design and robust documentation
+\item Led the implementation of version control and documentation protocols for data transformation models, significantly improving data quality and team collaboration
+\item Designed and delivered intuitive dashboards for Marketing, Sales, and Product teams using Metabase and Amplitude, driving data-informed decision making
+\item Developed and executed strategic long-term BI roadmap in collaboration with CTO, aligning with product and engineering objectives
+\end{itemize}
+
+
+\cvevent{Marketing Data Analyst \& Experimentation - Contractor}{Gravity Road\industrytag{Agency}}{Jun 2021 -- Oct 2021}{London, UK}
+\begin{itemize}
+\item Led data strategy initiatives for Foot Locker, implementing comprehensive A/B testing framework for performance-based social advertising
+\item Developed and executed control frameworks to optimize ROAS and improve sales performance through data-driven campaign strategies
+\item Conducted in-depth analysis of customer behavior and campaign performance to inform strategic decision-making and optimize marketing ROI
+\end{itemize}
+
+\divider
+
+\cvevent{Senior Digital Analytics Consultant}{Upwork Growth\industrytag{Consultancy}}{Aug 2020 -- Mar 2022}{London, UK}
+\begin{itemize}
+\item Provided strategic analytics consulting for eCommerce clients, start-ups, and scale-ups, focusing on data architecture and growth strategies
+\item Designed and implemented ELT pipelines and BI stacks using Fivetran, dbt, and Segment to enable data-driven decision making
+\item Created comprehensive growth strategies based on consumer journey analysis and data-driven insights
+\item Developed and optimized AARRR funnels resulting in significant improvements in conversion rates and customer retention
+\item Implemented sophisticated A/B testing frameworks to optimize user experience and increase conversion rates
+\end{itemize}
+
+\divider
+
+\cvevent{Head of Growth \& Data}{Generation M}{Jan 2010 -- Jan 2020}{Istanbul, TR}
+\begin{itemize}
+\item Led digital transformation initiatives and implemented data-driven marketing strategies for global brands including M\&S, Aeropostale, Converse, Columbia, ING, and Ulker (Pilladis).
+\item Delivered 125\% improvement in conversion rates for gaming client through systematic product page optimization and A/B testing
+\item Delivered eCommerce growth projects by driving customer acquisition and retention improvements through actionable data insights.
+\item Directed the development and integration of unified data pipelines, including CRM, DMP, and BI tools, to support cross-channel marketing campaigns.
+\item Developed data-driven growth strategies resulting in measurable improvements in key performance indicators across digital assets
+\item Designed and optimized multi-channel attribution models, enhancing marketing ROI and achieving measurable improvements in campaign effectiveness.
+\end{itemize}
+
+\divider
+
+\cvevent{Digital Marketing Manager}{Mapplook}{Jan 2009 -- Mar 2010}{Istanbul, TR}
+\begin{itemize}
+\item Enhanced lead generation strategy across multiple channels, achieving 20\% increase in monthly qualified leads
+\item Pioneered integration of Foursquare APIs into geolocation processes, improving location-based marketing effectiveness
+\item Drove 45\% increase in web traffic through implementation of growth hacking techniques and optimization of digital marketing strategies
+\item Developed and executed comprehensive digital marketing campaigns resulting in significant improvements in user acquisition and engagement
+\end{itemize}
+
+
+% Adapted from @Jake's answer from http://tex.stackexchange.com/a/82729/226
+% \wheelchart{outer radius}{inner radius}{
+% comma-separated list of value/text width/color/detail}
+% \wheelchart{1.5cm}{0.5cm}{%
+%   6/8em/accent!30/{Sleep,\\beautiful sleep},
+%   3/8em/accent!40/Hopeful novelist by night,
+%   8/8em/accent!60/Daytime job,
+%   2/10em/accent/Sports and relaxation,
+%   5/6em/accent!20/Spending time with family
+% }
+
+% use ONLY \newpage if you want to force a page break for
+% ONLY the current column
+
+%% Switch to the right column. This will now automatically move to the second
+%% page if the content is too long.
+\switchcolumn
+
+\cvsection{Core Competencies}
+\skillcategory{\faLaptopCode}{Technical Skills}
+\skillitem{Data Pipeline}{
+  \item Data modeling design
+  \item ELT implementation
+  \item Data Testing \& Validation
+  \item Python for deep-dive \& cleaning
+  \item Version control
+}
+
+\skillitem{Analytics \& BI}{
+  \item Advanced statistical techniques 
+  \item Cross-functional KPI Dashboards
+  \item Self-service enablement
+  \item Experimentation:
+    \begin{itemize}
+      \item Test design
+      \item Statistical evaluation
+      \item Impact analysis
+    \end{itemize}
+  \item Deep-dive:
+    \begin{itemize}
+      \item Root cause
+      \item Cohort analysis
+      \item Anomaly detection
+    \end{itemize}
+}
+%{\color{SlateGrey}\vspace{2mm}\hrule width \linewidth height 0.4pt\vspace{2mm}}
+
+\skillcategory{\faUsers}{Business Skills}
+\skillitem{Stakeholder Management}{
+  \item Cross-functional collaboration
+  \item Requirements gathering
+  \item Data storytelling
+  \item Training \& mentoring junior analysts
+}
+
+\skillitem{Strategic Thinking}{
+  \item Business Metrics definition
+  \item KPI development
+  \item ROI analysis
+  \item Competitive \& Market Trend analysis
+}
+
+% Skills section with added content
+\skillitem{Project Management}{
+  \item Agile methodologies
+  \item Process optimization
+  \item Resource planning
+  \item Stakeholder alignment
+}
+
+
+\skillcategory{\faChartLine}{Domain Expertise}
+\skillitem{Digital Analytics}{
+  \item Attribution modeling
+  \item Customer Journey analysis
+  \item Product analytics
+}
+
+\skillitem{Growth}{
+  \item Funnel optimization
+  \item B2C/B2B strategies
+  \item Retention \& Churn Models
+  \item LTV maximization
+}
+
+\skillitem{Statistical}{
+  \item A/B testing
+  \item Hypothesis testing
+  \item Segmentation
+}
+\smallskip
+
+% Stack section with better organization
+\cvsection{Stack}
+{\LaTeXraggedright
+% Data Warehouses
+\textcolor{SlateGrey}{\small Data Warehouses:}\par\smallskip
+\cvtag{\toolicon{\faDatabase}{Snowflake}}
+\cvtag{\toolicon{\faAws}{Redshift}}
+\cvtag{\toolicon{\faCloud}{BigQuery}}
+\cvtag{\toolicon{\faServer}{Clickhouse}}
+\vspace{2mm}  % between categories in Stack
+
+
+
+% ETL/ELT Tools
+\textcolor{SlateGrey}{\small Data Integration \& Tracking:}\par\smallskip
+\cvtag{\toolicon{\faRandom}{Fivetran}}
+\cvtag{\toolicon{\faCode}{dbt}}
+\cvtag{\toolicon{\faCogs}{Airflow}}
+\cvtag{\toolicon{\faSync}{Census}}
+\cvtag{\toolicon{\faStream}{Segment}}
+\cvtag{\toolicon{\faTag}{GTM}}
+\vspace{2mm}  % between categories in Stack
+
+
+
+% Visualization
+\textcolor{SlateGrey}{\small Visualization:}\par\smallskip
+\cvtag{\toolicon{\faChartBar}{Metabase}}
+\cvtag{\toolicon{\faChartLine}{Tableau}}
+\cvtag{\toolicon{\faChartPie}{Looker}}
+\cvtag{\toolicon{\faBolt}{Lightdash}}
+\vspace{2mm}  % between categories in Stack
+
+
+
+% Development
+\textcolor{SlateGrey}{\small Development:}\par\smallskip
+\cvtag{\toolicon{\faPython}{Python}}
+\cvtag{\toolicon{\faTable}{pandas}}
+\cvtag{\toolicon{\faCode}{SQL}}
+\cvtag{\toolicon{\faCodeBranch}{Git}}
+\vspace{2mm}  % between categories in Stack
+
+
+% Analytics
+\textcolor{SlateGrey}{\small Analytics:}\par\smallskip
+\cvtag{\toolicon{\faChartArea}{GA4}}
+\cvtag{\toolicon{\faSignal}{Amplitude}}
+\par}
+
+
+\cvsection{Education}
+
+\cvevent{Data Analysis for Management}{London School of Economics}{2019}{London, UK}
+
+\divider
+
+\cvevent{BSc - Computer Science}{Işık University}{2006}{Istanbul, Turkey}
+
+
+\cvsection{Languages}
+
+\cvskill{English}{5}
+\divider
+
+\cvskill{Turkish}{5}
+\divider
+
+%% Yeah I didn't spend too much time making all the
+%% spacing consistent... sorry. Use \smallskip, \medskip,
+%% \bigskip, \vspace etc to make adjustments.
+
+
+
+% \divider
+
+% \cvsection{Referees}
+
+% % \cvref{name}{email}{mailing address}
+% \cvref{Prof.\ Alpha Beta}{Institute}{a.beta@university.edu}
+% {Address Line 1\\Address line 2}
+
+% \divider
+
+% \cvref{Prof.\ Gamma Delta}{Institute}{g.delta@university.edu}
+% {Address Line 1\\Address line 2}
+
+
+\end{paracol}
+
+
+\end{document}
